@@ -7,30 +7,40 @@ const router = express.Router();
 //we can store ticket history in another collection
 //Updates the ticket status (open/close + adding user details)
 router.post('/book-ticket', (req, res) => {
-    const ticket = new Ticket({ seatNumber: req.body.seatNumber })
-    const user = new User(req.body.passengerInfo)
+    Ticket.findOne({ seatNumber: req.body.seatNumber , isBooked: true}, (error, data) => {
+        if (error) 
+            return res.status(404).json({ message: error })
+        if (data != null) 
+            return res.status(200).json({ message: "Seat Closed (already occupied)" })
+        else{
+            const ticket = new Ticket({ seatNumber: req.body.seatNumber })
+            const user = new User(req.body.passengerInfo)
 
-    user.save()
-        .then(data => {
-            if (data) {
-                ticket.passengerInfo = user._id
-                ticket.save()
-                    .then(data => res.status(200).json(data))
-                    .catch(error => {
-                        User.findOneAndDelete({ _id: user._id })
-                            .then((data) => res.status(400))
-                            .catch(error => res.status(400).json({ message: error }))
-                    })
-            }
-        })
-        .catch(error => res.status(404).json({ message: error }))
+            user.save()
+                .then(data => {
+                    if (data) {
+                        ticket.passengerInfo = user._id
+                        ticket.save()
+                            .then(data => res.status(200).json(data))
+                            .catch(error => {
+                                User.findOneAndDelete({ _id: user._id })
+                                    .then((data) => res.status(400))
+                                    .catch(error => res.status(400).json({ message: error }))
+                            })
+                    }
+                })
+                .catch(error => res.status(404).json({ message: error }))
+        }
+    });    
 });
 
 // View all closed tickets
 router.get('/ticket/view-closed', (req, res) => {
     Ticket.find({ isBooked: true }, (error, data) => {
-        if (error) res.status(404).json({ message: error })
-        if (data) res.status(200).json(data)
+        if (error) 
+            res.status(404).json({ message: error })
+        if (data) 
+            res.status(200).json(data)
     })
 });
 
@@ -62,7 +72,7 @@ router.post('/ticket/reset', (req, res) => {
 });
 
 // View Ticket Status with ticketID
-router.get('/ticket-status/:ticketID', (req, res) => {
+router.get('/ticket/status/:ticketID', (req, res) => {
     const { ticketID } = req.params
     Ticket.findById(ticketID, function (error, ticket) {
         if (error) res.status(404).json({ message: error })
