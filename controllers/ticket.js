@@ -42,4 +42,21 @@ router.get('/ticket/view-open', (req, res) => {
     })
 });
 
+//to reset all tickets
+router.post('/ticket/reset', (req, res) => {
+    //username and password can be used for admin verification
+    Ticket.find({ isBooked: true }, (err, data) => {
+        if (err) res.status(404).json({ message: err })
+        if (data) {
+            data.forEach(function(ticket){
+                ticket.isBooked = false
+                ticket.save()
+                    .then(data => console.log(`Ticket Opened - ticketID: ${ticket._id}`))
+                    .catch(error => console.log(`Failed to Open Ticket - ticketID: ${ticket._id}`))
+            });
+            res.status(200).json({ message: "success" })
+        }
+    });
+});
+
 module.exports = router;
