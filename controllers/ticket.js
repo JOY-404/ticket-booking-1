@@ -5,7 +5,7 @@ const User = require("../models/User");
 const router = express.Router();
 
 //we can store ticket history in another collection
-//Update the ticket status (open/close + adding user details)
+//Updates the ticket status (open/close + adding user details)
 router.post('/book-ticket', (req, res) => {
     const ticket = new Ticket({ seatNumber: req.body.seatNumber })
     const user = new User(req.body.passengerInfo)
