@@ -6,7 +6,7 @@ const router = express.Router();
 
 //we can store ticket history in another collection
 //create a new ticket
-router.post('/ticket', (req, res) => {
+router.post('/book-ticket', (req, res) => {
     const ticket = new Ticket({ seatNumber: req.body.seatNumber })
     const user = new User(req.body.passengerInfo)
 
@@ -24,6 +24,22 @@ router.post('/ticket', (req, res) => {
             }
         })
         .catch(err => res.status(404).json({ message: err }))
+});
+
+// get list of all closed tickets
+router.get('/ticket/view-closed', (req, res) => {
+    Ticket.find({ isBooked: true }, (err, data) => {
+        if (err) res.status(404).json({ message: err })
+        if (data) res.status(200).json(data)
+    })
+});
+
+// get list of all closed tickets
+router.get('/ticket/view-open', (req, res) => {
+    Ticket.find({ isBooked: false }, (err, data) => {
+        if (err) res.status(404).json({ message: err })
+        if (data) res.status(200).json(data)
+    })
 });
 
 module.exports = router;
