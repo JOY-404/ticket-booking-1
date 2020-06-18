@@ -1,0 +1,328 @@
+{
+	"info": {
+		"_postman_id": "83bb38f3-f721-48b5-bf13-ad755dee9729",
+		"name": "Bus_Ticket_Collection",
+		"description": "Saving all requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://18.206.156.104:9000/bus/book-ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"seatNumber\": 1,\r\n    \"passengerInfo\": { \r\n        \"name\": \"Janmejoy Sahoo\",\r\n        \"gender\": \"M\",\r\n        \"age\": 23,\r\n        \"phone\": 6370434376\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://18.206.156.104:9000/bus/book-ticket",
+					"protocol": "http",
+					"host": [
+						"18",
+						"206",
+						"156",
+						"104"
+					],
+					"port": "9000",
+					"path": [
+						"bus",
+						"book-ticket"
+					]
+				},
+				"description": "Booking ticket for 1st seat. We get Ticket Id as \"_id\". Save it"
+			},
+			"response": []
+		},
+		{
+			"name": "http://18.206.156.104:9000/bus/book-ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"seatNumber\": 2,\r\n    \"passengerInfo\": { \r\n        \"name\": \"Prateek Sahu\",\r\n        \"gender\": \"M\",\r\n        \"age\": 21,\r\n        \"phone\": 7008975640\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://18.206.156.104:9000/bus/book-ticket",
+					"protocol": "http",
+					"host": [
+						"18",
+						"206",
+						"156",
+						"104"
+					],
+					"port": "9000",
+					"path": [
+						"bus",
+						"book-ticket"
+					]
+				},
+				"description": "Booking ticket for 2nd seat. We get Ticket Id as \"_id\". Save it"
+			},
+			"response": []
+		},
+		{
+			"name": "http://18.206.156.104:9000/bus/book-ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"seatNumber\": 3,\r\n    \"passengerInfo\": { \r\n        \"name\": \"Prachi Pallavi\",\r\n        \"gender\": \"F\",\r\n        \"age\": 20,\r\n        \"phone\": 7985641232\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://18.206.156.104:9000/bus/book-ticket",
+					"protocol": "http",
+					"host": [
+						"18",
+						"206",
+						"156",
+						"104"
+					],
+					"port": "9000",
+					"path": [
+						"bus",
+						"book-ticket"
+					]
+				},
+				"description": "Booking ticket for 3rd seat. We get Ticket Id as \"_id\". Save it"
+			},
+			"response": []
+		},
+		{
+			"name": "http://18.206.156.104:9000/bus/book-ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"seatNumber\": 2,\r\n    \"passengerInfo\": { \r\n        \"name\": \"Amiya Mallick\",\r\n        \"gender\": \"M\",\r\n        \"age\": 22,\r\n        \"phone\": 7455641232\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://18.206.156.104:9000/bus/book-ticket",
+					"protocol": "http",
+					"host": [
+						"18",
+						"206",
+						"156",
+						"104"
+					],
+					"port": "9000",
+					"path": [
+						"bus",
+						"book-ticket"
+					]
+				},
+				"description": "Trying to book ticket for seat no. 2 which is already occupied"
+			},
+			"response": []
+		},
+		{
+			"name": "http://18.206.156.104:9000/bus/ticket/view-closed",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://18.206.156.104:9000/bus/ticket/view-closed",
+					"protocol": "http",
+					"host": [
+						"18",
+						"206",
+						"156",
+						"104"
+					],
+					"port": "9000",
+					"path": [
+						"bus",
+						"ticket",
+						"view-closed"
+					]
+				},
+				"description": "To view all closed tickets. From here we can get ticket number also."
+			},
+			"response": []
+		},
+		{
+			"name": "http://18.206.156.104:9000/bus/ticket/status/5ea7f1e876b6eb2bc8fec43c",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://18.206.156.104:9000/bus/ticket/status/5ea7f1e876b6eb2bc8fec43c",
+					"protocol": "http",
+					"host": [
+						"18",
+						"206",
+						"156",
+						"104"
+					],
+					"port": "9000",
+					"path": [
+						"bus",
+						"ticket",
+						"status",
+						"5ea7f1e876b6eb2bc8fec43c"
+					]
+				},
+				"description": "To view status of ticket by providing unique ticket number to each customer"
+			},
+			"response": []
+		},
+		{
+			"name": "http://18.206.156.104:9000/bus/ticket/details/5ea7f1e876b6eb2bc8fec43c",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://18.206.156.104:9000/bus/ticket/details/5ea7f1e876b6eb2bc8fec43c",
+					"protocol": "http",
+					"host": [
+						"18",
+						"206",
+						"156",
+						"104"
+					],
+					"port": "9000",
+					"path": [
+						"bus",
+						"ticket",
+						"details",
+						"5ea7f1e876b6eb2bc8fec43c"
+					]
+				},
+				"description": "To get details of the person owning the ticket by providing unique ticket number"
+			},
+			"response": []
+		},
+		{
+			"name": "http://18.206.156.104:9000/bus/ticket/reset",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://18.206.156.104:9000/bus/ticket/reset",
+					"protocol": "http",
+					"host": [
+						"18",
+						"206",
+						"156",
+						"104"
+					],
+					"port": "9000",
+					"path": [
+						"bus",
+						"ticket",
+						"reset"
+					]
+				},
+				"description": "For admin to reset the server (opens up all the tickets)"
+			},
+			"response": []
+		},
+		{
+			"name": "http://18.206.156.104:9000/bus/book-ticket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"seatNumber\": 1,\r\n    \"passengerInfo\": { \r\n        \"name\": \"Abhisek Pandit\",\r\n        \"gender\": \"M\",\r\n        \"age\": 21,\r\n        \"phone\": 1234567890\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://18.206.156.104:9000/bus/book-ticket",
+					"protocol": "http",
+					"host": [
+						"18",
+						"206",
+						"156",
+						"104"
+					],
+					"port": "9000",
+					"path": [
+						"bus",
+						"book-ticket"
+					]
+				},
+				"description": "After admin resets all seats to open, we can now book ticket with seat number 1."
+			},
+			"response": []
+		},
+		{
+			"name": "http://18.206.156.104:9000/bus/ticket/view-closed",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://18.206.156.104:9000/bus/ticket/view-closed",
+					"protocol": "http",
+					"host": [
+						"18",
+						"206",
+						"156",
+						"104"
+					],
+					"port": "9000",
+					"path": [
+						"bus",
+						"ticket",
+						"view-closed"
+					]
+				},
+				"description": "Now viewing all of the closed tickets"
+			},
+			"response": []
+		},
+		{
+			"name": "http://18.206.156.104:9000/bus/ticket/view-open",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://18.206.156.104:9000/bus/ticket/view-open",
+					"protocol": "http",
+					"host": [
+						"18",
+						"206",
+						"156",
+						"104"
+					],
+					"port": "9000",
+					"path": [
+						"bus",
+						"ticket",
+						"view-open"
+					]
+				},
+				"description": "To view all open tickets (tickets that are not booked)"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
